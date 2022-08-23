@@ -23,11 +23,17 @@ public class ProdutosService {
     }
 
     public ProdutosModel cadastrar(ProdutosModel produtosModel){
+        produtosModel.getCodigo();
+        produtosModel.getNome();
+        produtosModel.getValor();
 
         return produtosRepository.save(produtosModel);
     }
 
     public ProdutosModel alterar(ProdutosModel produtos){
+        produtos.getCodigo();
+        produtos.getNome();
+        produtos.getValor();
 
         return produtosRepository.save(produtos);
     }
