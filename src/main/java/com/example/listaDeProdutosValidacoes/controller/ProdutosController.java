@@ -19,16 +19,15 @@ public class ProdutosController {
 
     @GetMapping
     public ResponseEntity<List<ProdutosModel>> buscarTodosProdutos(){
-        List<ProdutosModel> listaProdutos = produtosService.buscarTodos();
-        return ResponseEntity.ok(listaProdutos);// Retorna o status, considerado mais pr√°tico por ter mais
-        // Mais funcionalidades e nos d√° a possibilidade de dar a resposta que queremos passar para o usu√°rio e dev
+        return ResponseEntity.ok(produtosService.buscarTodos());// Retorna o status, considerado mais pr·tico por ter mais
+        // Mais funcionalidades e nos d· a possibilidade de dar a resposta que queremos passar para o usu·rio e dev
 
         /*
-        Response entity: √â uma Classe que importamos atrav√©s do HTTP, √© criado pelo spring Web que nos auxilia a fazer
-        cria√ß√µes com o CRUD, impede de declarar informa√ß√µes que n√£o foram declaradas
+        Response entity: … uma Classe que importamos atravÈs do HTTP, È criado pelo spring Web que nos auxilia a fazer
+        criaÁıes com o CRUD, impede de declarar informaÁıes que n„o foram declaradas
         */
 
-        // O ponto "." √© uma forma de pesquisa para saber os m√©todos que a classe que est√° sendo usada oferece
+        // O ponto "." È uma forma de pesquisa para saber os mÈtodos que a classe que est· sendo usada oferece
 
 
         /*Outra forma de se fazer
@@ -47,7 +46,7 @@ public class ProdutosController {
     @PostMapping
     public ResponseEntity<ProdutosModel> cadastrarProdutos(@RequestBody ProdutosModel produtosModel){
         ProdutosModel produtos = produtosService.cadastrar(produtosModel);
-        return new ResponseEntity<>(produtos, HttpStatus.CREATED); // Vai retornar 201 - 204, pois est√° criando algo
+        return new ResponseEntity<>(produtos, HttpStatus.CREATED); // Vai retornar 201 - 204, pois est· criando algo
     }
 
     @PutMapping(path = "/{codigo}")
@@ -55,7 +54,7 @@ public class ProdutosController {
         return ResponseEntity.ok(produtosService.alterar(produtos));
     }
 
-    @DeleteMapping(path = "/{codigo}") // N√£o √© necess√°rio usar o response entity no delete
+    @DeleteMapping(path = "/{codigo}") // N„o È necess·rio usar o response entity no delete
     // exemplo: public. ResponseEntity<void>
     public void deletarProdutos(@PathVariable Long codigo){
         produtosService.deletar(codigo);

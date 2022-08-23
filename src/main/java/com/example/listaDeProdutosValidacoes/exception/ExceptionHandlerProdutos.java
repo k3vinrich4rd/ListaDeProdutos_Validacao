@@ -26,10 +26,10 @@ public class ExceptionHandlerProdutos extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         String mensagemUser = messageSource.getMessage("mensagem.invalida", null, null);
-        String mensagemDev = ex.getCause().toString(); // Para saber a causa da exce√ß√£o e passar para String
-        // Para o usu√°rio ver apenas a mensagem dedidacada para ele                                                                                      //Locale: Tipo da linguagem da mensagem
+        String mensagemDev = ex.getCause().toString(); // Para saber a causa da exceÁ„o e passar para String
+        // Para o usu·rio ver apenas a mensagem dedidacada para ele                                                                                      //Locale: Tipo da linguagem da mensagem
         return handleExceptionInternal(ex, new MensagemErro(mensagemUser, mensagemDev), headers, HttpStatus.BAD_REQUEST, request);
-        // Para o usu√°rio ver apenas a mensagem dedidacada para ele
+        // Para o usu·rio ver apenas a mensagem dedidacada para ele
         // E pro desenvolvedor a mesma coisa
     }
 
@@ -48,10 +48,10 @@ public class ExceptionHandlerProdutos extends ResponseEntityExceptionHandler {
 
 
 //Primeira forma de se fazer
-//Trata somente mensagens que ele n√£o conseguiu ler
-//  @ExceptionHandler(HttpMessageNotReadableException.class) // M√©todo de exce√ß√£o
+//Trata somente mensagens que ele n„o conseguiu ler
+//  @ExceptionHandler(HttpMessageNotReadableException.class) // MÈtodo de exceÁ„o
 //public ResponseEntity<String> exceptioHandlerCampoInvalido(HttpMessageNotReadableException exception, HttpServletRequest request){
-// HttpServletRequest: nos permite pegar o body do tipo da requisi√ß√£o post
-// return new ResponseEntity<>("O campo inserido, √© inv√°lido", HttpStatus.BAD_REQUEST); // Vai pegar algo e dar uma nova resposta para o usu√°rio
+// HttpServletRequest: nos permite pegar o body do tipo da requisiÁ„o post
+// return new ResponseEntity<>("O campo inserido, È inv·lido", HttpStatus.BAD_REQUEST); // Vai pegar algo e dar uma nova resposta para o usu·rio
 
 //}
